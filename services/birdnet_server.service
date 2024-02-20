@@ -1,0 +1,12 @@
+[Unit]
+Description=BirdNET Analysis Server
+Before=birdnet_analysis.service
+[Service]
+Environment=XDG_RUNTIME_DIR=/run/user/32011
+Restart=always
+Type=simple
+RestartSec=10
+#User=phablet
+ExecStart=/home/phablet/.birdnet/bin/server.sh
+[Install]
+WantedBy=multi-user.target

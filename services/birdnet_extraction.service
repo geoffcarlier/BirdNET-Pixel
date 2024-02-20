@@ -1,0 +1,11 @@
+[Unit]
+Description=BirdNET BirdSound Extraction
+[Service]
+Environment=XDG_RUNTIME_DIR=/run/user/32011
+Restart=on-failure
+RestartSec=3
+Type=simple
+#User=phablet
+ExecStart=/usr/bin/env bash -c 'while true;do libertine-container-manager exec -i birdnet -c extract_new_birdsounds.sh;sleep 3;done'
+[Install]
+WantedBy=multi-user.target

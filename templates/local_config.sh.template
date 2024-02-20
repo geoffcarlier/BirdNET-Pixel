@@ -1,0 +1,3 @@
+# Edit variables "local_config.sh"
+FILE_SERVER='XXX.XXX.XXX.XXX'
+FILE_SERVER_USER='YYY'

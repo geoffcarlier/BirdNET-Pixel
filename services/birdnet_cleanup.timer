@@ -1,0 +1,8 @@
+[Unit]
+Description=BirdNET Cleanup timer
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=5min
+Unit=birdnet_cleanup.service
+[Install]
+WantedBy=default.target

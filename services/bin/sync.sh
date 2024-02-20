@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# A script to sync data from a BirdNET-Pixel recording and classifying device to a running BirdNet-Pi server for reporting
+source ../../local_config.sh
+
+DOCUMENT_HOME=/home/phablet/Documents
+DB_FILE=$DOCUMENT_HOME/BirdData/birds.db
+BIRDSONGS_DIR=$DOCUMENT_HOME/BirdSongs/
+
+# Backup the database
+libertine-container-manager exec -i birdnet -c "python3.9 /home/phablet/BirdNET-Pixel/services/bin/backup.py"
+
+# Sync database
+rsync -avz $DB_FILE $FILE_SERVER_USER@$FILE_SERVER:/home/$FILE_SERVER_USER/BirdNET-Pi/scripts/birds.db
+
+# Sync files
+rsync -avz $BIRDSONGS_DIR/Extracted/By_Date $FILE_SERVER_USER@$FILE_SERVER:/home/$FILE_SERVER_USER/BirdSongs/Extracted --delete
+rsync -avz $BIRDSONGS_DIR/Processed $FILE_SERVER_USER@$FILE_SERVER:/home/$FILE_SERVER_USER/BirdSongs/Processed --delete
+rsync -avz $BIRDSONGS_DIR/*20* $FILE_SERVER_USER@$FILE_SERVER:/home/$FILE_SERVER_USER/BirdSongs --delete
+rsync -avz $BIRDNET_PI/BirdDB.txt $FILE_SERVER_USER@$FILE_SERVER:/home/$FILE_SERVER_USER/BirdNET-Pi

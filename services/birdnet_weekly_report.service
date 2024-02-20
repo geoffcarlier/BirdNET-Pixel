@@ -1,0 +1,8 @@
+[Unit]
+Description=BirdNET Weekly
+[Service]
+Type=simple
+Environment=XDG_RUNTIME_DIR=/run/user/32011
+ExecStart=/home/phablet/.birdnet/bin/weekly_report.sh
+[Install]
+WantedBy=default.target
