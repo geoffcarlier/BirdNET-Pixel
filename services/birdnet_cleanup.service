@@ -3,6 +3,6 @@ Description=BirdNET Cleanup Service
 [Service]
 Type=simple
 Environment=XDG_RUNTIME_DIR=/run/user/32011
-ExecStart=/home/phablet/.birdnet/bin/cleanup.sh
+ExecStart=/home/phablet/Documents/.birdnet/services/bin/cleanup.sh
 [Install]
 WantedBy=default.target
