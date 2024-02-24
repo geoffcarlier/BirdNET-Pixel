@@ -8,6 +8,6 @@ RuntimeMaxSec=900
 Restart=always
 Type=simple
 RestartSec=2
-ExecStart=/home/phablet/.birdnet/bin/analysis.sh
+ExecStart=/home/phablet/Documents/.birdnet/services/bin/analysis.sh
 [Install]
 WantedBy=multi-user.target
