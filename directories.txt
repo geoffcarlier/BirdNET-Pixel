@@ -1,4 +1,0 @@
-# A list of Directories that need to exist
-~/Documents/BirdData/
-
-/home/phablet/Documents/.birdnet/install/install_services.sh
