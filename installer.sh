@@ -32,18 +32,18 @@ libertine-container-manager install-package -i birdnet -p git jq
 # Install services dependencies
 libertine-container-manager install-package -i birdnet -p ftpd sqlite3 alsa-utils pulseaudio sox libsox-fmt-mp3
 libertine-container-manager install-package -i birdnet -p ffmpeg wget unzip curl cmake make bc libjpeg-dev zlib1g-dev
-libertine-container-manager install-package -i birdnet -p python3.9 python3-dev python3-pip python3-venv lsof net-tools
+libertine-container-manager install-package -i birdnet -p python3.9 python3.9-dev python3-pip python3.9-venv lsof net-tools
 
 branch=main
-Libertine-launch -i birdnet "git clone -b $branch --depth=1 https://github.com/mcguirepr89/BirdNET-Pi.git ${HOME}/BirdNET-Pi &&"
+libertine-container-manager exec -i birdnet -c "git clone -b $branch --depth=1 https://github.com/mcguirepr89/BirdNET-Pi.git ${HOME}/BirdNET-Pi"
 
-Libertine-launch -i birdnet "git clone -b $branch --depth=1 https://github.com/geoffcarlier/BirdNET-Pixel.git ${HOME}/BirdNET-Pixel &&"
+libertine-container-manager exec -i birdnet -c "git clone -b $branch --depth=1 https://github.com/geoffcarlier/BirdNET-Pixel.git ${HOME}/BirdNET-Pixel"
 
-Libertine-launch -i birdnet "$HOME/BirdNET-Pixel/install/install_birdnet_pi.sh"
+libertine-container-manager exec -i birdnet -c "$HOME/BirdNET-Pixel/install/install_birdnet_pi.sh"
 
-Libertine-launch -i birdnet "$HOME/BirdNET-Pixel/install/install_birdnet_pixel.sh"
+libertine-container-manager exec -i birdnet -c "$HOME/BirdNET-Pixel/install/install_birdnet_pixel.sh"
 
-sudo ./home/phablet/Documents/.birdnet/install/install_services.sh
+sudo /home/phablet/Documents/.birdnet/install/install_services.sh
 
 if [ ${PIPESTATUS[0]} -eq 0 ];then
   echo "Installation completed successfully"
