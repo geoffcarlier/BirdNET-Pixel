@@ -6,11 +6,6 @@
 #
 # Code is based around the BirdNET-Pi code
 
-# Make sure only root can run this script
-if [ "$(id -u)" != "0" ]; then
-   echo "    Must be run as root, you must prepend sudo !" 1>&2 ; exit 1
-fi
-
 set -x # Uncomment to enable debugging
 trap 'rm -f ${tmpfile}' EXIT
 trap 'exit 1' SIGINT SIGHUP
@@ -27,17 +22,17 @@ install_scripts() {
 }
 
 install_service() {
-  su - ${USER} -c "cp $BIRDNET_PIXEL_HOME/services/$1.service /home/phablet/.config/systemd/user/"
-  systemctl enable $1.service
+  cp $BIRDNET_PIXEL_HOME/services/$1.service /home/phablet/.config/systemd/user/
+  chmod 644 /home/phablet/.config/systemd/user/$1.service
+  systemctl --user enable $1.service
 }
 
 install_timer() {
-  su - ${USER} -c "cp $BIRDNET_PIXEL_HOME/services/$1.service /home/phablet/.config/systemd/user/"
-  su - ${USER} -c "cp $BIRDNET_PIXEL_HOME/services/$1.timer /home/phablet/.config/systemd/user/"  
-  systemctl enable $1.timer
+  cp $BIRDNET_PIXEL_HOME/services/$1.service /home/phablet/.config/systemd/user/
+  cp $BIRDNET_PIXEL_HOME/services/$1.timer /home/phablet/.config/systemd/user/
+  chmod 644 /home/phablet/.config/systemd/user/$1.*
+  systemctl --user enable $1.timer
 }
-
-
 
 install_services() {
   install_service "birdnet_analysis"
@@ -50,4 +45,3 @@ install_services() {
 }
 
 install_services
-
