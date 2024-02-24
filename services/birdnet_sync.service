@@ -2,6 +2,6 @@
 Description=Sync Service to backup and push Birdnet files to a server
 [Service]
 Type=simple
-ExecStart=/home/phablet/.birdnet/bin/sync.sh
+ExecStart=/home/phablet/Documents/.birdnet/services/bin/sync.sh
 [Install]
 WantedBy=default.target
