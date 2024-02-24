@@ -74,6 +74,8 @@ generate_BirdDB() {
 generate_BirdDB
 ${my_dir}/scripts/createdb.sh
 
+ln -sf ${my_dir}/scripts/* /usr/local/bin/
+
 chown_things() {
   chown -R $USER:$USER $HOME/Bird*
 }
@@ -84,5 +86,7 @@ if [ -f ${config_file} ];then
 else
   echo "Unable to find a configuration file. Please make sure that $config_file exists."
 fi
+
+
 
 exit 0
