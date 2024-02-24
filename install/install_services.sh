@@ -21,6 +21,9 @@ install_scripts() {
   ln -sf ${my_dir}/scripts/* /usr/local/bin/
 }
 
+[ -d /home/phablet/.config/systemd/ ] || mkdir -p /home/phablet/.config/systemd/
+[ -d /home/phablet/.config/systemd/user ] || mkdir -p /home/phablet/.config/systemd/user
+
 install_service() {
   cp $BIRDNET_PIXEL_HOME/services/$1.service /home/phablet/.config/systemd/user/
   chmod 644 /home/phablet/.config/systemd/user/$1.service
