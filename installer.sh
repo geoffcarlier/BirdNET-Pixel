@@ -39,10 +39,10 @@ libertine-container-manager exec -i birdnet -c "git clone -b $branch --depth=1 h
 
 libertine-container-manager exec -i birdnet -c "git clone -b $branch --depth=1 https://github.com/geoffcarlier/BirdNET-Pixel.git ${HOME}/BirdNET-Pixel"
 
-libertine-container-manager exec -i birdnet -c "chmod g+x $HOME/BirdNET-Pixel/install/install_birdnet_pi.sh"
+libertine-container-manager exec -i birdnet -c "chmod 777 $HOME/BirdNET-Pixel/install/install_birdnet_pi.sh"
 libertine-container-manager exec -i birdnet -c "$HOME/BirdNET-Pixel/install/install_birdnet_pi.sh"
 
-libertine-container-manager exec -i birdnet -c "chmod g+x $HOME/BirdNET-Pixel/install/install_birdnet_pixel.sh"
+libertine-container-manager exec -i birdnet -c "chmod 777 $HOME/BirdNET-Pixel/install/install_birdnet_pixel.sh"
 libertine-container-manager exec -i birdnet -c "$HOME/BirdNET-Pixel/install/install_birdnet_pixel.sh"
 
 /home/phablet/Documents/.birdnet/install/install_services.sh
