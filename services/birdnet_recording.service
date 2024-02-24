@@ -5,6 +5,6 @@ Environment=XDG_RUNTIME_DIR=/run/user/32011
 Restart=always
 Type=simple
 RestartSec=3
-ExecStart=/home/phablet/.birdnet/bin/recording.sh
+ExecStart=/home/phablet/Documents/.birdnet/services/bin/recording.sh
 [Install]
 WantedBy=multi-user.target
