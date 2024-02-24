@@ -43,7 +43,7 @@ libertine-container-manager exec -i birdnet -c "$HOME/BirdNET-Pixel/install/inst
 
 libertine-container-manager exec -i birdnet -c "$HOME/BirdNET-Pixel/install/install_birdnet_pixel.sh"
 
-sudo /home/phablet/Documents/.birdnet/install/install_services.sh
+/home/phablet/Documents/.birdnet/install/install_services.sh
 
 if [ ${PIPESTATUS[0]} -eq 0 ];then
   echo "Installation completed successfully"
