@@ -43,7 +43,6 @@ install_services() {
   install_service "birdnet_recording"
   install_service "birdnet_extraction"
   install_timer "birdnet_cleanup"
-  install_timer "birdnet_weekly_report"
   install_timer "birdnet_sync"
 }
 
