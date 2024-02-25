@@ -8,7 +8,7 @@ DB_FILE=$DOCUMENT_HOME/BirdData/birds.db
 BIRDSONGS_DIR=$DOCUMENT_HOME/BirdSongs/
 
 # Backup the database
-libertine-container-manager exec -i birdnet -c "python3.9 /home/phablet/BirdNET-Pixel/services/bin/backup.py"
+libertine-container-manager exec -i birdnet -c "/home/phablet/BirdNET-Pi/birdnet/bin/python3 /home/phablet/BirdNET-Pixel/services/bin/backup.py"
 
 # Sync database
 rsync -avz $DB_FILE $FILE_SERVER_USER@$FILE_SERVER:/home/$FILE_SERVER_USER/BirdNET-Pi/scripts/birds.db
