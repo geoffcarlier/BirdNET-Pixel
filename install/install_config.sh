@@ -3,6 +3,7 @@
 set -x # Uncomment to enable debugging
 set -e
 trap 'exit 1' SIGINT SIGHUP
+set -e # exit installation if anything fails
 
 echo "Beginning $0"
 birdnet_conf=$my_dir/birdnet.conf

@@ -9,6 +9,8 @@
 set -x # Uncomment to enable debugging
 trap 'rm -f ${tmpfile}' EXIT
 trap 'exit 1' SIGINT SIGHUP
+set -e # exit installation if anything fails
+
 tmpfile=$(mktemp)
 
 config_file=$my_dir/birdnet.conf
