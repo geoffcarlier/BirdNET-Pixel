@@ -9,4 +9,4 @@ RestartSec=10
 #User=phablet
 ExecStart=/home/phablet/Documents/.birdnet/services/bin/server.sh
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

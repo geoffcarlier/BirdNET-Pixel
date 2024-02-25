@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # A script to sync data from a BirdNET-Pixel recording and classifying device to a running BirdNet-Pi server for reporting
-source ../../local_config.sh
+source /home/phablet/Documents/.birdnet/local_config.sh
 
 DOCUMENT_HOME=/home/phablet/Documents
 DB_FILE=$DOCUMENT_HOME/BirdData/birds.db

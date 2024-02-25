@@ -7,4 +7,4 @@ Type=simple
 RestartSec=3
 ExecStart=/home/phablet/Documents/.birdnet/services/bin/recording.sh
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

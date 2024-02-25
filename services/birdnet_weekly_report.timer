@@ -1,7 +1,0 @@
-[Unit]
-Description=Weekly timer
-[Timer]
-OnCalendar=Weekly
-Unit=birdnet_weekly_report.service
-[Install]
-WantedBy=default.target

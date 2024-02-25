@@ -10,4 +10,4 @@ Type=simple
 RestartSec=2
 ExecStart=/home/phablet/Documents/.birdnet/services/bin/analysis.sh
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
