@@ -51,7 +51,7 @@ install_birdnet() {
   echo "Establishing a python virtual environment"
   python3.9 -m venv birdnet
   source ./birdnet/bin/activate
-  python3.9 -m pip install -U -r $HOME/BirdNET-Pi/requirements.txt
+  python3.9 -m pip install -U -r $HOME/BirdNET-Pixel/requirements.txt
 }
 
 install_birdnet
