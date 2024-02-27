@@ -24,7 +24,7 @@ export HOME=$HOME
 export USER=$USER
 
 # Create a libertine container.
-libertine-container-manager create -i birdnet
+libertine-container-manager create -i birdnet --force
 
 # Install basic packages
 libertine-container-manager install-package -i birdnet -p git jq
