@@ -38,7 +38,7 @@ branch=main
 libertine-container-manager exec -i birdnet -c "git clone -b $branch --depth=1 https://github.com/mcguirepr89/BirdNET-Pi.git ${HOME}/BirdNET-Pi"
 libertine-container-manager exec -i birdnet -c "git clone -b $branch --depth=1 https://github.com/geoffcarlier/BirdNET-Pixel.git ${HOME}/BirdNET-Pixel"
 
-libertine-container-manager exec -i birdnet -c "chmod 777 $HOME/BirdNET-Pixel/install/*.sh"
+libertine-container-manager exec -i birdnet -c "find $HOME/BirdNET-Pixel/install -type f -exec chmod 0755 {} \;"
 libertine-container-manager exec -i birdnet -c "$HOME/BirdNET-Pixel/install/modify_birdnet_pi.sh"
 libertine-container-manager exec -i birdnet -c "$HOME/BirdNET-Pixel/install/install_birdnet_pi.sh"
 
