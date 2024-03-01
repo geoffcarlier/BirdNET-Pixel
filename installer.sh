@@ -42,7 +42,6 @@ libertine-container-manager exec -i birdnet -c "find $HOME/BirdNET-Pixel/install
 libertine-container-manager exec -i birdnet -c "$HOME/BirdNET-Pixel/install/modify_birdnet_pi.sh"
 libertine-container-manager exec -i birdnet -c "$HOME/BirdNET-Pixel/install/install_birdnet_pi.sh"
 
-libertine-container-manager exec -i birdnet -c "chmod 777 $HOME/BirdNET-Pixel/install/install_birdnet_pixel.sh"
 libertine-container-manager exec -i birdnet -c "$HOME/BirdNET-Pixel/install/install_birdnet_pixel.sh"
 
 

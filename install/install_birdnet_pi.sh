@@ -68,7 +68,7 @@ generate_BirdDB() {
   elif ! grep Date $my_dir/BirdDB.txt;then
     sed -i '1 i\Date;Time;Sci_Name;Com_Name;Confidence;Lat;Lon;Cutoff;Week;Sens;Overlap' $my_dir/BirdDB.txt
   fi
-  chown $USER:$USER ${my_dir}/BirdDB.txt 
+  #chown $USER:$USER ${my_dir}/BirdDB.txt 
   chmod g+rw ${my_dir}/BirdDB.txt
 }
 generate_BirdDB
