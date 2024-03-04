@@ -13,6 +13,6 @@ pytest==7.1.2
 pytest-mock==3.7.0
 suntime
 numpy==1.19.4
-numba==056.4
+numba==0.56.4
 scipy==1.10.1
 scikit-learn==1.2.2
