@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+[Unit]
+>>>>>>> 092ab659be502e7cf2e4f3015d093d184390bca5
 Description=Sync Service to push Birdnet files to a server
 [Timer]
 OnBootSec=5min
