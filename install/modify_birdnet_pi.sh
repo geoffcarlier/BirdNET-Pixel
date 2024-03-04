@@ -13,3 +13,12 @@ COREUTIL_ENV_TOKEN="-S --default-signal=PIPE "
 
 # coreutils mismatch
 sed -i 's/-S --default-signal=PIPE //g' ${BIRDNET_PI_DIR}/scripts/birdnet_analysis.sh
+
+# sudo cannot be used in the container and services are not accessible
+sed -i 's/sudo rm/rm/g' ${BIRDNET_PI_DIR}/scripts/birdnet_analysis.sh
+sed -i 's/sudo/#sudo/g' ${BIRDNET_PI_DIR}/scripts/birdnet_analysis.sh
+
+sed -i 's/sudo -u ${USER} //g' ${BIRDNET_PI_DIR}/scripts/clear_all_data.sh
+sed -i 's/sudo systemctl/#sudo systemctl/g' ${BIRDNET_PI_DIR}/scripts/clear_all_data.sh
+sed -i 's/restart_services.sh/#restart_services.sh/g' ${BIRDNET_PI_DIR}/scripts/clear_all_data.sh
+#restart_services.sh

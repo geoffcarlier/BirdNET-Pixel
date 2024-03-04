@@ -21,3 +21,8 @@ Hardware
 - 25W Solar panel
 - Solar controller
 - SLA Battery
+
+Install
+- UBPortds Ubuntu Touch install
+
+`wget -q -O - "https://raw.githubusercontent.com/geoffcarlier/BirdNET-Pixel/main/installer.sh" | bash`
