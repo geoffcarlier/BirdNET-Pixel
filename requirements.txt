@@ -6,10 +6,13 @@ colorama==0.4.4
 librosa==0.9.2
 pytz
 tzlocal
-pandas
+pandas==1.4.4
 apprise==1.2.1
 paho-mqtt
 pytest==7.1.2
 pytest-mock==3.7.0
 suntime
 numpy==1.19.4
+numba==056.4
+scipy==1.10.1
+scikit-learn==1.2.2
