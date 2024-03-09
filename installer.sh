@@ -48,8 +48,8 @@ libertine-container-manager exec -i birdnet -c "$HOME/BirdNET-Pixel/install/inst
 /home/phablet/Documents/.birdnet/install/install_services.sh
 
 if [ ${PIPESTATUS[0]} -eq 0 ];then
-  echo "Installation completed successfully.  Authorise reboot or Ctl-C"
-  sudo reboot
+  echo "Installation completed successfully."
+  #sudo reboot
 else
   echo "The installation exited unsuccessfully."
   exit 1
