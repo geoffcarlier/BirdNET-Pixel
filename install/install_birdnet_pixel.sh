@@ -28,8 +28,8 @@ cp /home/phablet/BirdNET-Pixel/utils/birdnetctl.sh ${BIRDNET_PIXEL_HOME}/bin
 ln -s ${BIRDNET_PIXEL_HOME}/bin/birdnetctl.sh /home/phablet/.local/bin/birdnetctl 
 
 chmod g+rx ${BIRDNET_INSTALL_SCRIPTS}
-chmod g+rw ${BIRDNET_SERVICES}/*
-chmod g+rx ${BIRDNET_SERVICES}/bin/*
-chmod g+rx ${BIRDNET_PIXEL_HOME}/bin
+chmod 755 ${BIRDNET_SERVICES}/*
+chmod 755 ${BIRDNET_SERVICES}/bin/*
+chmod 755 ${BIRDNET_PIXEL_HOME}/bin/*
 
 exit 0
