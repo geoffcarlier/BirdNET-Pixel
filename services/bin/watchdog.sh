@@ -27,6 +27,7 @@ rebuild_system()
   rm -rf /home/phablet/.local/share/libertine-container/user-data/birdnet/BirdNET-Pi*
 
   birdnetctl reinstall
+  birdnetctl start
 }
 
 ################################## MAIN #####################################
