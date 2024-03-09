@@ -18,4 +18,4 @@ rsync -avz $BIRDSONGS_DIR/Extracted/By_Date $FILE_SERVER_USER@$FILE_SERVER:/home
 rsync -avz $BIRDSONGS_DIR/Processed $FILE_SERVER_USER@$FILE_SERVER:/home/$FILE_SERVER_USER/BirdSongs/Processed
 rsync -avz $BIRDSONGS_DIR/*20* $FILE_SERVER_USER@$FILE_SERVER:/home/$FILE_SERVER_USER/BirdSongs
 
-rsync -avz $DOCUMENT_HOME/logs $FILE_SERVER_USER@$FILE_SERVER:/home/$FILE_SERVER_USER/phablet-logs
+rsync -avz $DOCUMENT_HOME/.birdnet/logs $FILE_SERVER_USER@$FILE_SERVER:/home/$FILE_SERVER_USER/phablet-logs
