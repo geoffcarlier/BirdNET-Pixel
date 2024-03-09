@@ -3,7 +3,7 @@
 ###############################################################################
 #set -x
 
-COMMANDS="status stop start restat enable disable log reinstall battery"
+COMMANDS="status stop start restat enable disable log bash reinstall battery"
 SERVICES="recording analysis extraction server sync cleanup watchdog"
 BATTERY_COMMAND="upower -i /org/freedesktop/UPower/devices/battery_battery"
 REINSTALL_COMMAND=""https://raw.githubusercontent.com/geoffcarlier/BirdNET-Pixel/main/installer.sh" | bash"
@@ -22,6 +22,7 @@ usage()
   echo "  - enable    Enable and start a service if not running.  This ensures a service sevivces reboot."
   echo "  - disable   Disable.  The service will not run after a reboot"
   echo "  - log       Get Battery details"
+  echo "  - bash      Get access to the libertine container"
   echo "  - battery   Get Battery details"  
   echo "  - reinstall Rebuild the entire system keeping data intact"  
   echo ""
@@ -82,6 +83,9 @@ case $COMMAND in
     ;;
   log)
     log_service $1 $2
+    ;;
+  bash)
+    libertine-container-manager exec -i birdnet -c bash
     ;; 
   reinstall)
     command_services stop
