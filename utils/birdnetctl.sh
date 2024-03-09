@@ -1,12 +1,15 @@
+#!/bin/bash
 ###############################################################################
 # A Swiss Army Control for the BirdNET-Pixel system
 ###############################################################################
 #set -x
 
+INSTALLER_REMOTE=https://raw.githubusercontent.com/geoffcarlier/BirdNET-Pixel/main/installer.sh
+INSTALLER_LOCAL=/home/phablet/Documents/.birdnet/installer.sh
 COMMANDS="status stop start restat enable disable log bash reinstall battery"
 SERVICES="recording analysis extraction server sync cleanup watchdog"
 BATTERY_COMMAND="upower -i /org/freedesktop/UPower/devices/battery_battery"
-REINSTALL_COMMAND=""https://raw.githubusercontent.com/geoffcarlier/BirdNET-Pixel/main/installer.sh" | bash"
+REINSTALL_COMMAND="wget -O $INSTALLER_LOCAL $INSTALLER_REMOTE"
 
 usage()
 {
@@ -89,7 +92,8 @@ case $COMMAND in
     ;; 
   reinstall)
     command_services stop
-    $REINSTALL_COMMAND
+    wget -O $INSTALLER_LOCAL $INSTALLER_REMOTE
+    bash $INSTALLER_LOCAL
     ;;
   battery)
     $BATTERY_COMMAND
