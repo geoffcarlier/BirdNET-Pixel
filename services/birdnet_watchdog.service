@@ -1,0 +1,7 @@
+[Unit]
+Description=Watchdog to monitor, log and repair (currently unstable) system
+[Service]
+Type=simple
+ExecStart=/home/phablet/Documents/.birdnet/services/bin/watchdog.sh
+[Install]
+WantedBy=default.target

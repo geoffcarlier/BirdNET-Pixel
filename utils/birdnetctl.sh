@@ -66,8 +66,9 @@ log_service()
 ###############################################################################
 
 if [ -z $1 ] ; then
-    echo "Missing arguments ..."
+    echo "Missing COMMAND ..."
     usage
+    exit
 fi 
 
 COMMAND=$1
