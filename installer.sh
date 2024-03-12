@@ -35,6 +35,7 @@ libertine-container-manager install-package -i birdnet -p ffmpeg wget unzip curl
 libertine-container-manager install-package -i birdnet -p python3.9 python3.9-dev python3-pip python3.9-venv lsof net-tools
 
 branch=main
+libertine-container-manager exec -i birdnet -c "rm -rf /home/phablet/BirdNET-Pi*"
 libertine-container-manager exec -i birdnet -c "git clone -b $branch --depth=1 https://github.com/mcguirepr89/BirdNET-Pi.git ${HOME}/BirdNET-Pi"
 libertine-container-manager exec -i birdnet -c "git clone -b $branch --depth=1 https://github.com/geoffcarlier/BirdNET-Pixel.git ${HOME}/BirdNET-Pixel"
 
