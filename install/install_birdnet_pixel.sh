@@ -21,7 +21,11 @@ echo "Creating necessary directories"
 [ -d ${BIRDNET_SERVICES} ] || mkdir -p ${BIRDNET_SERVICES}
 [ -d $LOGDIR ] || mkdir -p $LOGDIR
 
-cp /home/phablet/BirdNET-Pi/scripts/birds.db $BIRDNET_DATA
+if [ -f $BIRDNET_DATA/birds.db ]; then 
+    cp $BIRDNET_DATA/birds.db /home/phablet/BirdNET-Pi/scripts
+else 
+    cp /home/phablet/BirdNET-Pi/scripts/birds.db $BIRDNET_DATA
+fi
 
 cp /home/phablet/BirdNET-Pixel/install/install_services.sh ${BIRDNET_INSTALL_SCRIPTS}
 cp -r /home/phablet/BirdNET-Pixel/services/* ${BIRDNET_SERVICES}
