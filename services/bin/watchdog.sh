@@ -2,9 +2,12 @@
 #############################################################################
 # A Monitoring script handling logging and attempting repairs
 #############################################################################
+set -x # Debugging
+exec > >(tee -i /home/phablet/Documents/.birdnet/logs/watchdog-debug-$(date +%F).txt) 2>&1 # Make log
+
 
 LOGDIR=/home/phablet/Documents/.birdnet/logs
-LOGFILE=$LOGDIR/birdnet-`date +%y-%m-%d`.log
+LOGFILE=$LOGDIR/stats-$(date +%F).log
 BIRDNETCTL=/home/phablet/Documents/.birdnet/bin/birdnetctl.sh
 BATTERY_LOW_LEVEL=10
 BATTERY_DISCHARGE_STATE="discharging"
@@ -25,11 +28,13 @@ rebuild_system()
   $BIRDNETCTL stop analysis
   $BIRDNETCTL stop extraction
   $BIRDNETCTL stop server
+  $BIRDNETCTL stop watchdog.timer
 
   rm -rf /home/phablet/.local/share/libertine-container/user-data/birdnet/BirdNET-Pi*
 
   $BIRDNETCTL reinstall
   $BIRDNETCTL start
+  $BIRDNETCTL watchdog.timer
 }
 
 ################################## MAIN #####################################

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Install BirdNET script
 set -x # Debugging
-exec > >(tee -i installation-$(date +%F).txt) 2>&1 # Make log
+exec > >(tee -i /home/phablet/Documents/.birdnet/logs/installation-pixel-$(date +%F).txt) 2>&1 # Make log
 set -e # exit installation if anything fails
 
 BIRDNET_DOC_HOME=~/Documents
@@ -23,6 +23,7 @@ echo "Creating necessary directories"
 
 if [ -f $BIRDNET_DATA/birds.db ]; then 
     cp $BIRDNET_DATA/birds.db /home/phablet/BirdNET-Pi/scripts
+    echo "Old database preserved!"
 else 
     cp /home/phablet/BirdNET-Pi/scripts/birds.db $BIRDNET_DATA
 fi
