@@ -23,6 +23,10 @@ USER=$USER
 export HOME=$HOME
 export USER=$USER
 
+# Create log dir
+[ -d ~/Documents/.birdnet ] || mkdir -p ~/Documents/.birdnet
+[ -d ~/Documents/.birdnet/logs ] || mkdir -p ~/Documents/.birdnet/logs
+
 # Create a libertine container.
 libertine-container-manager create -i birdnet --force
 

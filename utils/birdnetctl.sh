@@ -94,6 +94,7 @@ case $COMMAND in
     command_services stop
     wget -O $INSTALLER_LOCAL $INSTALLER_REMOTE
     bash $INSTALLER_LOCAL
+    command_services start
     ;;
   battery)
     $BATTERY_COMMAND

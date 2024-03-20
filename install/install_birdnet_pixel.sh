@@ -15,11 +15,11 @@ echo "Creating necessary directories"
 [ -d ${BIRDNET_DATA} ] || mkdir -p ${BIRDNET_DATA}
 [ -d ${BIRDNET_PIXEL_HOME} ] || mkdir -p ${BIRDNET_PIXEL_HOME}
 [ -d ${BIRDNET_PIXEL_HOME}/bin ] || mkdir -p ${BIRDNET_PIXEL_HOME}/bin
+[ -d $LOGDIR ] || mkdir -p $LOGDIR
 [ -d ~/.local/bin ] || mkdir -p ~/.local/bin
 [ -d ${BIRDNET_INSTALL_SCRIPTS} ] || mkdir -p ${BIRDNET_INSTALL_SCRIPTS}
 [ -d ${BIRDNET_SERVICES} ] || mkdir -p ${BIRDNET_SERVICES}
 [ -d ${BIRDNET_SERVICES} ] || mkdir -p ${BIRDNET_SERVICES}
-[ -d $LOGDIR ] || mkdir -p $LOGDIR
 
 if [ -f $BIRDNET_DATA/birds.db ]; then 
     cp $BIRDNET_DATA/birds.db /home/phablet/BirdNET-Pi/scripts
