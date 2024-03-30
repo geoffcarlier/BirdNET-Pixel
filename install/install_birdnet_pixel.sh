@@ -32,7 +32,7 @@ cp /home/phablet/BirdNET-Pixel/install/install_services.sh ${BIRDNET_INSTALL_SCR
 cp -r /home/phablet/BirdNET-Pixel/services/* ${BIRDNET_SERVICES}
 
 cp /home/phablet/BirdNET-Pixel/utils/birdnetctl.sh ${BIRDNET_PIXEL_HOME}/bin
-ln -s ${BIRDNET_PIXEL_HOME}/bin/birdnetctl.sh /home/phablet/.local/bin/birdnetctl 
+ln -sf ${BIRDNET_PIXEL_HOME}/bin/birdnetctl.sh /home/phablet/.local/bin/birdnetctl 
 
 chmod g+rx ${BIRDNET_INSTALL_SCRIPTS}
 chmod 755 ${BIRDNET_SERVICES}/*

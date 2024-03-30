@@ -1,7 +1,7 @@
 Description=Sync Service to push Birdnet files to a server
 [Timer]
 OnBootSec=5min
-OnUnitActiveSec=5min
+OnUnitActiveSec=10min
 Unit=birdnet_sync.service
 [Install]
 WantedBy=default.target
