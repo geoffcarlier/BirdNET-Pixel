@@ -28,6 +28,8 @@ else
     cp /home/phablet/BirdNET-Pi/scripts/birds.db $BIRDNET_DATA
 fi
 
+chmod 755 /home/phablet/BirdNET-Pixel/services/bin/*
+
 cp /home/phablet/BirdNET-Pixel/install/install_services.sh ${BIRDNET_INSTALL_SCRIPTS}
 cp -r /home/phablet/BirdNET-Pixel/services/* ${BIRDNET_SERVICES}
 
@@ -36,7 +38,6 @@ ln -sf ${BIRDNET_PIXEL_HOME}/bin/birdnetctl.sh /home/phablet/.local/bin/birdnetc
 
 chmod g+rx ${BIRDNET_INSTALL_SCRIPTS}
 chmod 755 ${BIRDNET_SERVICES}/*
-chmod 755 ${BIRDNET_SERVICES}/bin/*
 chmod 755 ${BIRDNET_PIXEL_HOME}/bin/*
 
 exit 0

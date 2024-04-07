@@ -22,13 +22,35 @@ log()
   echo "`date +%y-%m-%d:%H:%M:%S` $@" >> $LOGFILE
 }
 
-rebuild_system()
+stop_all_services()
 {
   $BIRDNETCTL stop recording
   $BIRDNETCTL stop analysis
   $BIRDNETCTL stop extraction
   $BIRDNETCTL stop server
   $BIRDNETCTL stop watchdog.timer
+  $BIRDNETCTL stop sync.timer
+  $BIRDNETCTL stop cleanup.timer
+}
+
+start_all_services()
+{
+  $BIRDNETCTL start
+  $BIRDNETCTL start watchdog.timer
+  $BIRDNETCTL start sync.timer
+  $BIRDNETCTL start cleanup.timer
+}
+
+handle_container_error(){
+  stop_all_services
+  #journalctl -o json > $LOGDIR/journal-dump-$(date +%F).json
+  cp /home/phablet/Documents/.birdnet/ContainersConfig.json /home/phablet/.local/share/libertine
+  start_all_services
+}
+
+rebuild_system()
+{
+  stop_all_services
 
   rm -rf /home/phablet/.local/share/libertine-container/user-data/birdnet/BirdNET-Pi*
 
@@ -57,14 +79,7 @@ log "Disk $DISC_USED $DISC_AVAILABLE $DISC_USED_PERCENT"
 if [ $DISC_USED_PERCENT -gt $DISC_FULL_PERCENT_LIMIT ] 
 then
     log "ERROR Disc is too full for continued operation.  Stopping services"
-    $BIRDNETCTL disable recording
-    $BIRDNETCTL stop recording
-    $BIRDNETCTL disable extraction
-    $BIRDNETCTL stop extraction
-    $BIRDNETCTL disable analysis
-    $BIRDNETCTL stop analysis
-    $BIRDNETCTL disable server
-    $BIRDNETCTL stop server
+    stop_all_services
 fi
 
 if [ $BATTERY_LEVEL -le $BATTERY_LOW_LEVEL ] && [ "$BATTERY_STATE" -eq "$BATTERY_DISCHARGE_STATE" ] 
@@ -73,12 +88,13 @@ then
 fi
 # 
 
-# Check Container still exists.  If not try rebuilding.
+# Check Container still exists.  If not shut everything down and gather diagnostics.
 CONTAINER=`libertine-container-manager list`
 
 if [ -z $CONTAINER ] 
 then
-    log "ERROR Container has disappeared!  Attempting to rebuild"
-    rebuild_system
-    exit
+    log "ERROR Container has disappeared!  Shutting down and dumping diagnostics"
+    #rebuild_system
+    handle_container_error
+    #exit
 fi

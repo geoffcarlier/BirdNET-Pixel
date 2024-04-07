@@ -10,7 +10,7 @@ systemctl stop birdnet_recording.service --user
 systemctl stop birdnet_analysis.service --user
 systemctl stop birdnet_server.service --user
 
-libertine-container-manager exec -i birdnet -c "/home/phablet/BirdNET-Pi/scripts/clear_all_data.sh"
+libertine-launch -i birdnet /home/phablet/BirdNET-Pi/scripts/clear_all_data.sh
 
 echo "Restarting services"
 systemctl start birdnet_recording.service --user

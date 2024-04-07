@@ -6,6 +6,6 @@ Restart=on-failure
 RestartSec=3
 Type=simple
 #User=phablet
-ExecStart=/usr/bin/env bash -c 'while true;do libertine-container-manager exec -i birdnet -c extract_new_birdsounds.sh;sleep 3;done'
+ExecStart=/usr/bin/env bash -c "libertine-launch -i birdnet /home/phablet/BirdNET-Pixel/extraction.sh"
 [Install]
 WantedBy=default.target

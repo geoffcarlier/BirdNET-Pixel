@@ -13,7 +13,7 @@ $BIRDNETCTL stop extraction
 $BIRDNETCTL stop server
 
 # Backup the database
-libertine-container-manager exec -i birdnet -c "/home/phablet/BirdNET-Pi/birdnet/bin/python3 /home/phablet/BirdNET-Pixel/services/bin/backup.py"
+libertine-launch -i birdnet /home/phablet/BirdNET-Pi/birdnet/bin/python3 /home/phablet/BirdNET-Pixel/services/bin/backup.py
 
 # Sync database
 rsync -avz $DB_FILE $FILE_SERVER_USER@$FILE_SERVER:/home/$FILE_SERVER_USER/BirdNET-Pi/scripts/birds.db

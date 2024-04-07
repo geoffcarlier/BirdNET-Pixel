@@ -88,7 +88,7 @@ case $COMMAND in
     log_service $1 $2
     ;;
   bash)
-    libertine-container-manager exec -i birdnet -c bash
+    libertine-launch -i birdnet bash
     ;; 
   reinstall)
     command_services stop
