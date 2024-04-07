@@ -6,6 +6,6 @@ Restart=on-failure
 RestartSec=3
 Type=simple
 #User=phablet
-ExecStart=/usr/bin/env bash -c "libertine-launch -i birdnet /home/phablet/BirdNET-Pixel/service/bin/extraction-pixel.sh"
+ExecStart=/usr/bin/env bash -c "libertine-launch -i birdnet /home/phablet/BirdNET-Pixel/services/bin/extraction-pixel.sh"
 [Install]
 WantedBy=default.target
