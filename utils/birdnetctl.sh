@@ -7,8 +7,9 @@
 INSTALLER_REMOTE=https://raw.githubusercontent.com/geoffcarlier/BirdNET-Pixel/main/installer.sh
 INSTALLER_LOCAL=/home/phablet/Documents/.birdnet/installer.sh
 COMMANDS="status stop start restat enable disable log bash reinstall battery"
-SERVICES="recording analysis extraction server sync cleanup watchdog"
+SERVICES="recording analysis extraction server sync cleanup watchdog vpn"
 BATTERY_COMMAND="upower -i /org/freedesktop/UPower/devices/battery_battery"
+VPN_STATE_COMMAND="nmcli -f GENERAL.STATE con show birdnet"
 REINSTALL_COMMAND="wget -O $INSTALLER_LOCAL $INSTALLER_REMOTE"
 
 usage()
@@ -19,12 +20,12 @@ usage()
   echo "Manage Birdnet-Pixel services"
   echo ""
   echo "COMMANDS - (All services will be commanded by default unless a service qualifier is provided)"
-  echo "  - status    List all servers and provide status informatiom"
+  echo "  - status    List all services and provide status informatiom"
   echo "  - stop      Stop a service if running, ignore if not"
   echo "  - start     Start a service"
-  echo "  - enable    Enable and start a service if not running.  This ensures a service sevivces reboot."
+  echo "  - enable    Enable and start a service if not running.  This ensures a service reboot."
   echo "  - disable   Disable.  The service will not run after a reboot"
-  echo "  - log       Get Battery details"
+  echo "  - log       Forever output log messages, <CTL>C to break"
   echo "  - bash      Get access to the libertine container"
   echo "  - battery   Get Battery details"  
   echo "  - reinstall Rebuild the entire system keeping data intact"  
@@ -36,7 +37,8 @@ usage()
   echo "  - server"  
   echo "  - sync"
   echo "  - cleanup"
-  echo "  - watchdog"  
+  echo "  - watchdog"
+  echo "  - vpn"  
   echo ""
   echo "OPTIONS"
   echo "  -h        Print this message"
@@ -80,6 +82,7 @@ COMMAND=$1
 case $COMMAND in
   status)
     systemctl --user list-units | grep birdnet
+    nmcli con | grep vpn
     ;;
   stop | start | restart | enable | disable)
     command_services $1 $2

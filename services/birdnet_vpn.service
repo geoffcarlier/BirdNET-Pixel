@@ -1,0 +1,15 @@
+[Unit]
+Description=OpenVPN tunnel for birdnet
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+Environment="SUDO_ASKPASS=/home/phablet/.local/bin/sudo-askpass"
+ExecStartPre=/bin/sleep 30
+ExecStart=sudo -A nmcli connection up birdnet passwd-file /home/phablet/Documents/.vpn/vpn-pass.txt
+ExecStop=sudo -A nmcli connection down birdnet
+
+[Install]
+WantedBy=default.target

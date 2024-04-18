@@ -1,7 +1,7 @@
 Description=Watchdog Service to monitor, log and repair
 [Timer]
 OnBootSec=6min
-OnUnitActiveSec=11min
+OnUnitActiveSec=5min
 Unit=birdnet_watchdog.service
 [Install]
 WantedBy=default.target

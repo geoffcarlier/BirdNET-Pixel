@@ -44,6 +44,7 @@ install_services() {
   install_service "birdnet_server"
   install_service "birdnet_recording"
   install_service "birdnet_extraction"
+  install_service "birdnet_vpn"
   install_timer "birdnet_cleanup"
   install_timer "birdnet_sync"
   install_timer "birdnet_watchdog"

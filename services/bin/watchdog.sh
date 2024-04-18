@@ -2,7 +2,7 @@
 #############################################################################
 # A Monitoring script handling logging and attempting repairs
 #############################################################################
-set -x # Debugging
+#set -x # Debugging
 exec > >(tee -i /home/phablet/Documents/.birdnet/logs/watchdog-debug-$(date +%F).txt) 2>&1 # Make log
 
 
@@ -48,17 +48,6 @@ handle_container_error(){
   start_all_services
 }
 
-rebuild_system()
-{
-  stop_all_services
-
-  rm -rf /home/phablet/.local/share/libertine-container/user-data/birdnet/BirdNET-Pi*
-
-  $BIRDNETCTL reinstall
-  $BIRDNETCTL start
-  $BIRDNETCTL watchdog.timer
-}
-
 ################################## MAIN #####################################
 
 # Collect and log info
@@ -88,13 +77,12 @@ then
 fi
 # 
 
-# Check Container still exists.  If not shut everything down and gather diagnostics.
-CONTAINER=`libertine-container-manager list`
+# Check VPN is up.  If not try to restart.
+VPN_STATE=`nmcli -f GENERAL.STATE con show birdnet`
+VPN_ENABLED=`systemctl --user is-enabled birdnet_vpn`
 
-if [ -z $CONTAINER ] 
+if [ -z "$VPN_STATE" ] && [ "$VPN_ENABLED" = "enabled" ];
 then
-    log "ERROR Container has disappeared!  Shutting down and dumping diagnostics"
-    #rebuild_system
-    handle_container_error
-    #exit
+    log "ERROR VPN has stopped. Trying a restart"
+    $BIRDNETCTL start vpn
 fi
