@@ -5,17 +5,20 @@
 #set -x # Debugging
 exec > >(tee -i /home/phablet/Documents/.birdnet/logs/watchdog-debug-$(date +%F).txt) 2>&1 # Make log
 
+export SUDO_ASKPASS=/home/phablet/.local/bin/sudo-askpass
 
 LOGDIR=/home/phablet/Documents/.birdnet/logs
 LOGFILE=$LOGDIR/stats-$(date +%F).log
 BIRDNETCTL=/home/phablet/Documents/.birdnet/bin/birdnetctl.sh
+REBOOT_DATE_FILE=/home/phablet/Documents/.birdnet/reboot-date.txt
+
 BATTERY_LOW_LEVEL=10
 BATTERY_DISCHARGE_STATE="discharging"
 DISC_FULL_PERCENT_LIMIT=90
 
 
 [ -d $LOGDIR ] || mkdir -p $LOGDIR
-
+[ -f $REBOOT_DATE_FILE ] || touch $REBOOT_DATE_FILE
 
 log()
 {
@@ -80,9 +83,21 @@ fi
 # Check VPN is up.  If not try to restart.
 VPN_STATE=`nmcli -f GENERAL.STATE con show birdnet`
 VPN_ENABLED=`systemctl --user is-enabled birdnet_vpn`
+HOUR=`date +%H`
+DATE=`date +%d:%m`
 
 if [ -z "$VPN_STATE" ] && [ "$VPN_ENABLED" = "enabled" ];
 then
-    log "ERROR VPN has stopped. Trying a restart"
-    $BIRDNETCTL start vpn
+    log "ERROR: VPN has stopped."
+    if [ "$HOUR" = "22" ]
+    then
+        if [ "$DATE" = "`cat $REBOOT_DATE_FILE`"  ] 
+        then 
+            log "Rebooted once already today, but VPN still down ..."
+        else
+            log "Rebooting to try and fix VPN" 
+            echo $DATE > $REBOOT_DATE_FILE
+            /usr/bin/sudo -A /bin/bash -lc "reboot now"
+        fi 
+    fi
 fi

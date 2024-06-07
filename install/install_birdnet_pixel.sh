@@ -15,6 +15,7 @@ echo "Creating necessary directories"
 [ -d ${BIRDNET_DATA} ] || mkdir -p ${BIRDNET_DATA}
 [ -d ${BIRDNET_PIXEL_HOME} ] || mkdir -p ${BIRDNET_PIXEL_HOME}
 [ -d ${BIRDNET_PIXEL_HOME}/bin ] || mkdir -p ${BIRDNET_PIXEL_HOME}/bin
+[ -d /home/phablet/.local/bin ] || mkdir -p /home/phablet/.local/bin
 [ -d $LOGDIR ] || mkdir -p $LOGDIR
 [ -d ~/.local/bin ] || mkdir -p ~/.local/bin
 [ -d ${BIRDNET_INSTALL_SCRIPTS} ] || mkdir -p ${BIRDNET_INSTALL_SCRIPTS}

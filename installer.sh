@@ -37,6 +37,7 @@ libertine-container-manager install-package -i birdnet -p git jq
 libertine-container-manager install-package -i birdnet -p ftpd sqlite3 alsa-utils pulseaudio sox libsox-fmt-mp3
 libertine-container-manager install-package -i birdnet -p ffmpeg wget unzip curl cmake make bc libjpeg-dev zlib1g-dev
 libertine-container-manager install-package -i birdnet -p python3.9 python3.9-dev python3-pip python3.9-venv lsof net-tools
+libertine-container-manager install-package -i birdnet -p libsecret-tools
 
 branch=main
 libertine-container-manager exec -i birdnet -c "rm -rf /home/phablet/BirdNET-Pi*"

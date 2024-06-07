@@ -11,6 +11,7 @@ SERVICES="recording analysis extraction server sync cleanup watchdog vpn"
 BATTERY_COMMAND="upower -i /org/freedesktop/UPower/devices/battery_battery"
 VPN_STATE_COMMAND="nmcli -f GENERAL.STATE con show birdnet"
 REINSTALL_COMMAND="wget -O $INSTALLER_LOCAL $INSTALLER_REMOTE"
+SPECIES_LIST_COMMAND="libertine-launch -i birdnet /home/phablet/BirdNET-Pi/birdnet/bin/python3 /home/phablet/BirdNET-Pi/scripts/species.py"
 
 usage()
 {
@@ -28,7 +29,8 @@ usage()
   echo "  - log       Forever output log messages, <CTL>C to break"
   echo "  - bash      Get access to the libertine container"
   echo "  - battery   Get Battery details"  
-  echo "  - reinstall Rebuild the entire system keeping data intact"  
+  echo "  - reinstall Rebuild the entire system keeping data intact"
+  echo "  - species   Dump a list of species that the system my detect
   echo ""
   echo "SERVICE_QUALIFER - (All services will be commanded, if possible or unless qualified)"
   echo "  - recording"
@@ -101,6 +103,9 @@ case $COMMAND in
     ;;
   battery)
     $BATTERY_COMMAND
+    ;;
+  species)
+    $SPECIES_LIST_COMMAND
     ;;
   *) # Invalid Option
     echo "ERROR:  Unsupported Command: $COMMAND"
