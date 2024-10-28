@@ -81,7 +81,7 @@ fi
 # 
 
 # Check VPN is up.  If not try to restart.
-VPN_STATE=`nmcli -f GENERAL.STATE con show birdnet`
+VPN_STATE=`nmcli -f GENERAL.STATE con show wg0`
 VPN_ENABLED=`systemctl --user is-enabled birdnet_vpn`
 HOUR=`date +%H`
 DATE=`date +%d:%m`
