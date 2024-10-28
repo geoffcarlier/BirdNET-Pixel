@@ -1,5 +1,5 @@
 [Unit]
-Description=OpenVPN tunnel for birdnet
+Description=WireGuard tunnel for birdnet
 After=network-online.target
 Wants=network-online.target
 
@@ -8,8 +8,8 @@ Type=oneshot
 RemainAfterExit=yes
 Environment="SUDO_ASKPASS=/home/phablet/.local/bin/sudo-askpass"
 ExecStartPre=/bin/sleep 30
-ExecStart=sudo -A nmcli connection up birdnet passwd-file /home/phablet/Documents/.vpn/vpn-pass.txt
-ExecStop=sudo -A nmcli connection down birdnet
+ExecStart=sudo -A nmcli connection up wg0
+ExecStop=sudo -A nmcli connection down wg0
 
 [Install]
 WantedBy=default.target
