@@ -47,11 +47,11 @@ https://docs.ubports.com/en/latest/userguide/install.html
 
 Pixel 3a
     https://developers.google.com/android/images#sargo
-    Sargo "9.0.0 (PQ3B.190801.002, Aug 2019)"
+    Sargo - 9.0.0 (PQ3B.190801.002, Aug 2019)
 
 3a XL
     https://developers.google.com/android/images#bonito
-    Bonito "9.0.0 (PQ3B.190801.002, Aug 2019)"
+    Bonito - 9.0.0 (PQ3B.190801.002, Aug 2019)
 
 Flash
 
@@ -68,23 +68,23 @@ https://docs.ubports.com/en/latest/userguide/advanceduse/adb.html
 
 `adb push ~/.ssh/id_rsa.pub /home/phablet/`
 
-'adb shell'
+`adb shell`
 
-`mkdir /home/phablet/.ssh
-chmod 700 /home/phablet/.ssh
-cat /home/phablet/id_rsa.pub >> /home/phablet/.ssh/authorized_keys
-chmod 600 /home/phablet/.ssh/authorized_keys
-chown -R phablet:phablet /home/phablet/.ssh
-rm id_rsa.pub
+`mkdir /home/phablet/.ssh`
+`chmod 700 /home/phablet/.ssh`
+`cat /home/phablet/id_rsa.pub >> /home/phablet/.ssh/authorized_keys`
+`chmod 600 /home/phablet/.ssh/authorized_keys`
+`chown -R phablet:phablet /home/phablet/.ssh`
+`rm id_rsa.pub`
 
-sudo systemctl enable ssh
-sudo systemctl start ssh`
+`sudo systemctl enable ssh`
+`sudo systemctl start ssh`
 
 All commands can now be performed over ssh
 
 #### Allow ssh communication to a server running BirdNET-Pi
-'ssh-keygen
-ssh-copy-id -i ~/.ssh/id_rsa.pub <USER_NAME>@<SERVER>`
+`ssh-keygen`
+`ssh-copy-id -i ~/.ssh/id_rsa.pub <USER_NAME>@<SERVER>`
 
 ### Set the Pixel to always switch on when attached to power
 From an attached computer
@@ -101,7 +101,7 @@ Edit the following File with credentials to allow writing of data to a Birdnet-P
 ## birdnetctl
 The birdnetctl tool is available from a fresh login after install
 
-`Useage: birdnetctl [-h] [COMMAND] [SERVICE_QUALIFIER]
+Useage: birdnetctl [-h] [COMMAND] [SERVICE_QUALIFIER]
 
 Manage Birdnet-Pixel services
 
@@ -124,6 +124,6 @@ SERVICE_QUALIFER - (All services will be commanded, if possible or unless qualif
   - sync
   - cleanup
   - watchdog
-  - vpn`
+  - vpn
 
 
