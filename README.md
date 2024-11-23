@@ -21,6 +21,14 @@ The Pixel 3a is used as it has the following advantages over a Raspberry Pi.
 - 50W Solar panel
 - Solar controller
 - SLA Battery
+- Raspberry Pi 4 running BirdNET-Pi
+
+## System
+- Pixel is an off-grid device using wifi or phone network, powered by Solar, always listening and processing bird calls.
+- If the phone network is used, A WireGuard VPN connection can be used.
+- A wifi connection does not require a VPN connection
+- A Raspberry pi running Birdnet-pi is used as a back end server
+- Data is synced between the Pixel and the Raspberry pi at intervals.
 
 ## Install
 
@@ -44,6 +52,7 @@ Pixel 3a
 3a XL
     https://developers.google.com/android/images#bonito
     Bonito "9.0.0 (PQ3B.190801.002, Aug 2019)"
+
 Flash
 
 #### Install UBPorts Installer on computer
