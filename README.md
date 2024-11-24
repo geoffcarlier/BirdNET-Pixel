@@ -97,8 +97,8 @@ From an attached computer\
 ## Configuration
 
 ### Data transfer details
-Edit the following credentials in the below file to allow writing of data to a Birdnet-Pi instance
-/home/phablet/Documents/.birdnet/local_config.sh
+Edit the following credentials in the below file to allow writing of data to a Birdnet-Pi instance\
+`/home/phablet/Documents/.birdnet/local_config.sh`
 
 ### BirdNET-Pi config
 `birdnetctl bash`\
