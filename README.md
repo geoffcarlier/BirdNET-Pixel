@@ -75,20 +75,20 @@ https://docs.ubports.com/en/latest/userguide/advanceduse/adb.html
 `cat /home/phablet/id_rsa.pub >> /home/phablet/.ssh/authorized_keys`\
 `chmod 600 /home/phablet/.ssh/authorized_keys`\
 `chown -R phablet:phablet /home/phablet/.ssh`\
-`rm id_rsa.pub`\
+`rm id_rsa.pub`
 
 `sudo systemctl enable ssh`\
-`sudo systemctl start ssh`\
+`sudo systemctl start ssh`
 
 All commands can now be performed over ssh
 
 #### Allow ssh communication to a server running BirdNET-Pi
 `ssh-keygen`\
-`ssh-copy-id -i ~/.ssh/id_rsa.pub <USER_NAME>@<SERVER>`\
+`ssh-copy-id -i ~/.ssh/id_rsa.pub <USER_NAME>@<SERVER>`
 
 ### Set the Pixel to always switch on when attached to power
-From an attached computer
-`fastboot oem off-mode-charge 0`\
+From an attached computer\
+`fastboot oem off-mode-charge 0`
 
 ### Birdnet-Pixel install
 `wget -q -O - "https://raw.githubusercontent.com/geoffcarlier/BirdNET-Pixel/main/installer.sh" | bash`\
