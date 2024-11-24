@@ -95,8 +95,15 @@ From an attached computer\
 
 
 ## Configuration
-Edit the following File with credentials to allow writing of data to a Birdnet-Pi instance
+
+### Data transfer details
+Edit the following credentials in the below file to allow writing of data to a Birdnet-Pi instance
 /home/phablet/Documents/.birdnet/local_config.sh
+
+### BirdNET-Pi config
+`birdnetctl bash`\
+`vi /home/phablet/BirdNET-Pi/birdnet.conf`\
+`exit`
 
 ## birdnetctl
 The birdnetctl tool is available from a fresh login after install
