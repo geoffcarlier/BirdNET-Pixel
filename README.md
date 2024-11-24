@@ -106,24 +106,24 @@ Useage: birdnetctl [-h] [COMMAND] [SERVICE_QUALIFIER]
 Manage Birdnet-Pixel services
 
 COMMANDS - (All services will be commanded by default unless a service qualifier is provided)
-  - status    List all services and provide status informatiom
-  - stop      Stop a service if running, ignore if not
-  - start     Start a service
-  - enable    Enable and start a service if not running.  This ensures a service reboot.
-  - disable   Disable.  The service will not run after a reboot
-  - log       Forever output log messages, <CTL>C to break
-  - bash      Get access to the libertine container
-  - battery   Get Battery details
-  - reinstall Rebuild the entire system keeping data intact
+  - **status**    List all services and provide status informatiom
+  - **stop**      Stop a service if running, ignore if not
+  - **start**     Start a service
+  - **enable**    Enable and start a service if not running.  This ensures a service reboot.
+  - **disable**   Disable.  The service will not run after a reboot
+  - **log**       Forever output log messages, <CTL>C to break
+  - **bash**      Get access to the libertine container
+  - **battery**   Get Battery details
+  - **reinstall** Rebuild the entire system keeping data intact
 
 SERVICE_QUALIFER - (All services will be commanded, if possible or unless qualified)
-  - recording
-  - extraction
-  - analysis
-  - server
-  - sync
-  - cleanup
-  - watchdog
-  - vpn
+  - **recording**
+  - **extraction**
+  - **analysis**
+  - **server**
+  - **sync**
+  - **cleanup**
+  - **watchdog**
+  - **vpn**
 
 
