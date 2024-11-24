@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Adapted from https://github.com/mcguirepr89/BirdNET-Pi
 # Install BirdNET script
 set -x # Debugging
 exec > >(tee -i /home/phablet/Documents/.birdnet/logs/installation-pi-$(date +%F).txt) 2>&1 # Make log

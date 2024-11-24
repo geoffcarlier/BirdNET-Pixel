@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Adapted from https://github.com/mcguirepr89/BirdNET-Pi
 # Creates and installs the /etc/birdnet/birdnet.conf file
 set -x # Uncomment to enable debugging
 set -e

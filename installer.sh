@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# Based on the BirdNET-Pi newinstaller.sh but Ubuntu Touch uses Libertine containers.
+# Adapted from https://github.com/mcguirepr89/BirdNET-Pi
+# As Ubuntu Touch has a read-only Host OS and allows software to be installed in Libertine containers:
 # - Binaries are installed in the container
 # - Services are installed in the host OS
 # - Data is written to the Documents directory which is accessible from both container and host OS

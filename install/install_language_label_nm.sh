@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Adapted from https://github.com/mcguirepr89/BirdNET-Pi
 
 usage() { echo "Usage: $0 -l <language i18n id>" 1>&2; exit 1; }
 

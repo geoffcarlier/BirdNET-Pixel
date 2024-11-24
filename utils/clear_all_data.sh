@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Adapted from https://github.com/mcguirepr89/BirdNET-Pi
 # This script removes all data that has been collected. It is tantamount to
 # starting all data-collection from scratch. Only run this if you are sure
 # you are okay will losing all the data that you've collected and processed

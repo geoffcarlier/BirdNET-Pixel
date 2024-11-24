@@ -4,7 +4,7 @@
 # - Install required services
 # - Create the required Directory structure and file. 
 #
-# Code is based around the BirdNET-Pi code
+# Adapted from https://github.com/mcguirepr89/BirdNET-Pi
 
 set -x # Uncomment to enable debugging
 trap 'rm -f ${tmpfile}' EXIT

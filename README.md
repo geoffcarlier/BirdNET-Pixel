@@ -1,5 +1,6 @@
 # BirdNET-Pixel
-An Ubuntu Touch Pixel 3a port for the BirdNET-Pi project for mobile detection
+An Ubuntu Touch Pixel 3a port for the BirdNET-Pi project (https://github.com/mcguirepr89/BirdNET-Pi) for mobile bird detection.
+
 
 This project uses the work created within BirdNET-Pi installed on a mobile phone.
 
