@@ -30,7 +30,7 @@ usage()
   echo "  - bash      Get access to the libertine container"
   echo "  - battery   Get Battery details"  
   echo "  - reinstall Rebuild the entire system keeping data intact"
-  echo "  - species   Dump a list of species that the system may detect
+  echo "  - species   Dump a list of species that the system may detect"
   echo ""
   echo "SERVICE_QUALIFER - (All services will be commanded, if possible or unless qualified)"
   echo "  - recording"
